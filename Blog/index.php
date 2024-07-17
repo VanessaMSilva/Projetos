@@ -16,9 +16,9 @@
                 </h2>
                 <p class="post-description"><?= $post['description']?></p>
                 <div class="tags-container">
-                <?php foreach($post['tags'] as $tag): ?>
-                <a href="#"><?= $tag ?></a>
-                <?php endforeach; ?>
+                    <?php foreach($post['tags'] as $tag): ?>
+                    <a href="#"><?= $tag ?></a>
+                    <?php endforeach; ?>
 
                 </div>
             </div>
