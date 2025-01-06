@@ -48,10 +48,22 @@
         }else{
           
             //Enviar mns de erro de dados faltantes
-            $message->setMessage("Por favor preencha todos os campos 1", "error", "back");
+            $message->setMessage("Por favor preencha todos os campos", "error", "back");
         }
 
     }else if($type === "login"){
+        $email= filter_input(INPUT_POST, "email");
+        $password= filter_input(INPUT_POST, "password");
+
+        //Tenta autenticar usuario
+        if($userDAO->authenticateUser($email, $password)){
+            $message->setMessage("Seja bem vindo!.", "success", "editpofile.php");
+
+        }else{
+            $message->setMessage("Usuario e/ou senha incorretos.", "error", "back");
+        }
+    }else{
+        $message->setMessage("Informações invalidas.", "error", "back");
 
     }
 
