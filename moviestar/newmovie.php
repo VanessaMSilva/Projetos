@@ -8,6 +8,8 @@
     $userdao = new UserDAO($conn, $BASE_URL);
 
     $userdata = $userdao->verifyToken(true);
+
+    
 ?>
 
 <div id="main-container" class="container-fluid">
@@ -25,15 +27,19 @@
                 <input type="file" class="form-control" id="image" name="image">
             </div>
             <div class="form-group">
-                <label for="length">Duração:</label>
-                <select type="text" class="form-control" id="category" name="category">
-                    <option value="Acao">Acao</option>
-                    <option value="Drama">Drama</option>
-                    <option value="Comedia">Comedia</option>
-                    <option value="Ficcao">Ficcao</option>
-                    <option value="Terro">Terro</option>
-                    <option value="Romance">Romance</option>
-                </select>
+                    <label for="length">Duração:</label>
+            <input type="text" class="form-control" id="length" name="length" placeholder="Digite a duração do filme">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Categoria:</label>
+                        <select type="text" class="form-control" id="category" name="category">
+                            <option value="Acao">Acao</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Comedia">Comedia</option>
+                            <option value="Ficcao">Ficcao</option>
+                            <option value="Terro">Terro</option>
+                            <option value="Romance">Romance</option>
+                        </select>
             
             </div>
             <div class="form-group">

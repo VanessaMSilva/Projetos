@@ -36,13 +36,13 @@
                 <?php foreach($userMovies as $movie):?>
                     <tr scope="row">
                     <td><?= $movie->id?></td>
-                    <td><a href="<?= $BASE_URL?>movie.php?id=<?= $movie->id?>" class="table-movie-title"><?= $movie->title?></a></td>
+                    <td><a href="<?= $BASE_URL?>movie.php?id=<?= $movie->id?>" class="table-movie-title" style="color: black" ><?= $movie->title?></a></td>
                     <td><i class="fas fa-star"></i> 9 </td>
                     <td class="actions-column">
                         <a href="<?= $BASE_URL?>editmovie.php?id=<?= $movie->id?>" class="edit-btn">
                             <i class="far fa-edit"></i>Editar
                         </a>
-                        <form action="<?= $BASE_URL?>movie_process.php?id=<?= $movie->id?>">
+                        <form action="<?= $BASE_URL?>movie_process.php?id=<?= $movie->id?>" method="POST">
                             <input type="hidden" name="type" value="delete">
                             <input type="hidden" name="id" value="<?= $movie->id ?>">
                             <button type="submit" class="delete-btn">
