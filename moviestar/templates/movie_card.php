@@ -1,7 +1,9 @@
 <?php
+    require_once("models/User.php");
     if(empty($movie->image)){
         $movie->image = "movie_cover.jpg";
     }
+  
 ?>
 
 <div class="card movie-card">

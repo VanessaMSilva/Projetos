@@ -5,9 +5,9 @@
     require_once("dao/UserDAO.php");
 
     $user = new User();
-    $userdao = new UserDAO($conn, $BASE_URL);
+    $userDao = new UserDAO($conn, $BASE_URL);
 
-    $userdata = $userdao->verifyToken(true);
+    $userData = $userDao->verifyToken(true);
 
     
 ?>

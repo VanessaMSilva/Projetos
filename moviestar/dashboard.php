@@ -9,11 +9,11 @@
       $user = new User();
       $userdao = new UserDAO($conn, $BASE_URL);
   
-      $userdata = $userdao->verifyToken(true);
+      $userData = $userdao->verifyToken(true);
      
       //DAO dos filmes
       $movieDAO = new MovieDAO($conn, $BASE_URL);
-      $userMovies = $movieDAO->getMoviesById($userdata->id);
+      $userMovies = $movieDAO->getMoviesById($userData->id);
 ?>
 
 <div id="main-container" class="container-fluid">
@@ -36,8 +36,8 @@
                 <?php foreach($userMovies as $movie):?>
                     <tr scope="row">
                     <td><?= $movie->id?></td>
-                    <td><a href="<?= $BASE_URL?>movie.php?id=<?= $movie->id?>" class="table-movie-title" style="color: black" ><?= $movie->title?></a></td>
-                    <td><i class="fas fa-star"></i> 9 </td>
+                    <td><a href="<?= $BASE_URL?>movie.php?id=<?= $movie->id?>" class="table-movie-title"><?= $movie->title?></a></td>
+                    <td><i class="fas fa-star"></i><?= $movie->rating ?> </td>
                     <td class="actions-column">
                         <a href="<?= $BASE_URL?>editmovie.php?id=<?= $movie->id?>" class="edit-btn">
                             <i class="far fa-edit"></i>Editar

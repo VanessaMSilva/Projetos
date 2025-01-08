@@ -6,12 +6,12 @@
     $user = new User();
     $userdao = new UserDAO($conn, $BASE_URL);
 
-    $userdata = $userdao->verifyToken(true);
+    $userData = $userdao->verifyToken(true);
 
-    $fullname = $user->getFullName($userdata);
+    $fullname = $user->getFullName($userData);
 
-    if($userdata->image == ""){
-        $userdata->image = "user.png";
+    if($userData->image == ""){
+        $userData->image = "user.png";
     }
 ?>
     <div id="main-container" class="container-fluid edit-profile-create">
@@ -25,23 +25,23 @@
                         <div class="form-group">
                             <label for="name">Nome:</label>
                             <input type="text" class="form-control" id="name" name="name" 
-                            placeholder="Digite seu nome" value="<?= $userdata->name?>">
+                            placeholder="Digite seu nome" value="<?= $userData->name?>">
                         </div>
                         <div class="form-group">
                             <label for="lastname">Sobrenome:</label>
                             <input type="text" class="form-control" id="lastname"
-                             name="lastname" placeholder="Digite seu sobrenome"  value="<?= $userdata->lastname?>">
+                             name="lastname" placeholder="Digite seu sobrenome"  value="<?= $userData->lastname?>">
                         </div>
                         <div class="form-group">
                             <label for="email">E-mail:</label>
                             <input type="text" readonly class="form-control disable" id="email"
-                             name="email" placeholder="Digite seu email" value="<?= $userdata->email?>">
+                             name="email" placeholder="Digite seu email" value="<?= $userData->email?>">
                         </div>
                         <input type="submit" class="btn card-btn" value="Alterar">
                         
                     </div>
                     <div class="col-md-4">
-                        <div class="profile-image-container" id="profile-image-container" style="background-image: url('<?= $BASE_URL?>img/users/<?=$userdata->image ?>')">
+                        <div class="profile-image-container" id="profile-image-container" style="background-image: url('<?= $BASE_URL?>img/users/<?=$userData->image ?>')">
                             
                         </div>
                         <div class="form-group">
@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label for="bio">Sobre você:</label>
-                            <textarea class="form-control" id="bio" name="bio" rows="5" placeholder="Conte sobre voce"><?= $userdata->bio ?></textarea>
+                            <textarea class="form-control" id="bio" name="bio" rows="5" placeholder="Conte sobre voce"><?= $userData->bio ?></textarea>
                         </div>
                     </div>
                 </div>

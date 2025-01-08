@@ -8,7 +8,7 @@
     $user = new User();
     $userDao = new UserDAO($conn, $BASE_URL);
     
-    $userData = $userdao->verifyToken(true);
+    $userData = $userDao->verifyToken(true);
 
     $movieDao = new MovieDAO($conn, $BASE_URL);
 

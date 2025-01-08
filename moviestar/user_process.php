@@ -12,7 +12,7 @@
     //Atualizar usuario
     if($type === "update"){
         //Resgata dados do usuario
-        $userdata = $userDAO->verifyToken();
+        $userData = $userDAO->verifyToken();
 
         //Recebe dados dopost
         $name = filter_input(INPUT_POST, "name");
@@ -24,10 +24,10 @@
         $user = new User();
 
         //Preencher dados usuario
-        $userdata->name = $name;
-        $userdata->lastname = $lastname;
-        $userdata->email = $email;
-        $userdata->bio = $bio;
+        $userData->name = $name;
+        $userData->lastname = $lastname;
+        $userData->email = $email;
+        $userData->bio = $bio;
 
         // Upload da imagem
     if(isset($_FILES["image"]) && !empty($_FILES["image"]["tmp_name"])) {
@@ -56,7 +56,7 @@
   
           imagejpeg($imageFile, "./img/users/" . $imageName, 100);
   
-          $userdata->image = $imageName;
+          $userData->image = $imageName;
   
         } else {
   
@@ -66,7 +66,8 @@
   
       }
        
-        $userDAO->update($userdata);
+        $userDAO->update($userData);
+        
     }else if($type === "changepassword"){
         //Recebe dados dopost
         $id = filter_input(INPUT_POST, "id");
@@ -81,8 +82,8 @@
           $finalpassword = $user->generatePassword($password);
           $user->password = $password;
             //Resgata dados do usuario
-          $userdata = $userDAO->verifyToken();
-          $user->id = $userdata->id;
+          $userData = $userDAO->verifyToken();
+          $user->id = $userData->id;
 
           $userDAO->changePassword($user);
         }else{
